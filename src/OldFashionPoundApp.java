@@ -1,4 +1,4 @@
-import src.OldFashionPound;
+package src;
 
 public class OldFashionPoundApp {
 
