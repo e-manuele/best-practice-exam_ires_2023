@@ -1,6 +1,8 @@
 package src;
 
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PoundStringAPI {
     PoundOperation op;
@@ -22,6 +24,7 @@ public class PoundStringAPI {
 
 
     public String applyOp(String s) throws IncorrectInputException {
+        if(isValid(s)){System.out.println("OK");}
         if (s.contains("+")) {
             Pound a = op.conv.fromStringToPound(s.substring(0, s.indexOf("+")));
             Pound b = op.conv.fromStringToPound(s.substring(s.indexOf("+") + 1));
@@ -40,20 +43,12 @@ public class PoundStringAPI {
             return op.division(a, b);
         } else throw new IncorrectInputException("Operation not found");
     }
-}
-/*canner input = new Scanner(System.in);
-System.out.print("Enter: ");
-String name = input.next();
 
-Pattern p = Pattern.compile("[A-Za-z]");
-Matcher m = p.matcher(name);
-boolean n = m.matches();
+    private boolean isValid(String s) {
+        Pattern p = Pattern.compile("[A-Za-z]");
+        Matcher m = p.matcher(s);
+        return true;
+    }
+}
 
-if (n == true) {
-   System.out.println(name);
-}
-else {
-   System.out.println("This is not a valid name.");
-}
-*/
 
