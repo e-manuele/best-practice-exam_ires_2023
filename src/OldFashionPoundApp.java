@@ -54,6 +54,15 @@ FARE PER OGNI OP UN OGGETTO(?)
         System.out.println(opAPI.decodeAndApply("5p 17s 8d - 5p 18s 8d"));
 
 
+        System.out.println(opAPI.decodeAndApply("5p 17s 8d * 2")); // 11p 15s 4d
+
+
+        System.out.println(opAPI.decodeAndApply("5p 17s 8d / 3")); // 1p 19s 2d (2p)
+
+        System.out.println(opAPI.decodeAndApply("18p 16s 1d / 15")); // = 1p 5s 0d (1s 1d)
+
+
+
 
     }
 

@@ -39,24 +39,23 @@ public class PoundStringAPI {
             return op.subtraction(a, b);
         } else if (s.contains("*")) {
             Pound a = op.conv.fromStringToPound(s.substring(0, s.indexOf("*")));
-            int b = Integer.parseInt(s.substring(s.indexOf("*") + 1));
+            int b = Integer.parseInt(s.substring(s.indexOf("*") + 1).replaceAll("\\s+",""));
             return op.multiplication(a, b);
         } else if (s.contains("/")) {
             Pound a = op.conv.fromStringToPound(s.substring(0, s.indexOf("/")));
-            int b = Integer.parseInt(s.substring(s.indexOf("/") + 1));
+            int b = Integer.parseInt(s.substring(s.indexOf("/") + 1).replaceAll("\\s+",""));
             return op.division(a, b);
         }
         return "";
     }
 
-    private boolean isValid(String s) {
+    private boolean isValid(String s) {  /// tentativo parte 2
         Pattern p = Pattern.compile("(\\d+[p]\\s*\\d++[s]\\s*\\d+[d]\\s*[+\\-*\\/]*)+");
         Matcher m = p.matcher(s);
 
-        List<MatchResult> ress = m.results().collect(Collectors.toList());
-        if (m.matches()) {
-            System.out.println(m.matches());
-            Pound res = op.conv.fromStringToPound("");
+        List<String> ress = m.results().map(String::valueOf).collect(Collectors.toList());
+        if (ress.size() >2) {
+            Pound res = op.conv.fromStringToPound(String.valueOf(ress.get(0)));
             for (int i = 1; i <= ress.size() - 1; i++) {
                 res = op.conv.fromStringToPound(res.toString() + " " + m.group(i + 1));
                 System.out.println("OK");

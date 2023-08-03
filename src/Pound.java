@@ -42,11 +42,5 @@ public class Pound {
         } else
             return pence + "d";
     }
-//    @Override
-//    public String toString() {
-//        if (negativePound != null) {
-//            return pound + "(" + negativePound + ')';
-//        } else
-//            return pound.toString();
-//    }
+
 }
