@@ -30,11 +30,11 @@ public class PoundStringAPI {
             return op.subtraction(a, b);
         } else if (s.contains("*")) {
             Pound a = op.conv.fromStringToPound(s.substring(0, s.indexOf("*")));
-            int b = Integer.parseInt(s.substring(s.indexOf("*") + 1).replaceAll("\\s+",""));
+            int b = Integer.parseInt(s.substring(s.indexOf("*") + 1).replaceAll("\\s+", ""));
             return op.multiplication(a, b);
         } else if (s.contains("/")) {
             Pound a = op.conv.fromStringToPound(s.substring(0, s.indexOf("/")));
-            int b = Integer.parseInt(s.substring(s.indexOf("/") + 1).replaceAll("\\s+",""));
+            int b = Integer.parseInt(s.substring(s.indexOf("/") + 1).replaceAll("\\s+", ""));
             return op.division(a, b);
         }
         return "";
@@ -45,16 +45,20 @@ public class PoundStringAPI {
         Matcher m = p.matcher(s);
 
         List<String> ress = m.results().map(String::valueOf).collect(Collectors.toList());
-        if (ress.size() >2) {
+
+
+        System.out.println("list six e "+ ress.size());
+
+
+
+        Pound res = op.conv.fromStringToPound(String.valueOf(ress.get(0)));
+        for (int i = 1; i <= ress.size() - 1; i++) {
             System.out.println("OK");
-            Pound res = op.conv.fromStringToPound(String.valueOf(ress.get(0)));
-            for (int i = 1; i <= ress.size() - 1; i++) {
-                System.out.println("OK");
-                res = op.conv.fromStringToPound(applyOp(res.toString() + " " + m.group(i + 1)));
-                System.out.println("OK");
-            }
-            System.out.println("risultato Soo" + res);
+            res = op.conv.fromStringToPound(applyOp(res.toString() + " " + m.group(i + 1)));
+            System.out.println("OK");
         }
+        System.out.println("risultato Soo" + res);
+
         return m.matches();
     }
 }
