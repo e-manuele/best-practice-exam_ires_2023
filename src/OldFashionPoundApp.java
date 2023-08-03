@@ -43,9 +43,14 @@ FARE PER OGNI OP UN OGGETTO(?)
         PoundOperation op = new PoundOperation(conv);
 
         PoundStringAPI opAPI = new PoundStringAPI(op);
-
+        // 9p 2s 6d
         System.out.println(opAPI.decodeAndApply("5p 17s 8d + 3p 4s 10d"));
+
+
+        //5p 17s 8d - 3p 4s 10d = 2p 12s 10d
         System.out.println(opAPI.decodeAndApply("5p 17s 8d - 3p 4s 10d"));
+
+        //  5p 17s 8d - 5p 18s 8d = 0d (-1s 0d)
         System.out.println(opAPI.decodeAndApply("5p 17s 8d - 5p 18s 8d"));
 
 
