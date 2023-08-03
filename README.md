@@ -1,7 +1,7 @@
 # best-practice-exam_ires_2023
 
-## OldFashionPound
-A library (package OldFashionPound) implementing the 4 arithmetic operations (sum, subtraction, multiplication and division) for pre-1970 UK prices. 
+## src.OldFashionPound
+A library (package src.OldFashionPound) implementing the 4 arithmetic operations (sum, subtraction, multiplication and division) for pre-1970 UK prices. 
 
 Under the old money system of UK, before 1970, there were 12 pence in a shilling and 20 shillings, or 240 pence, in a pound. Thus, a price in th OldUK Money system was expressed in Pounds, Shillings and Pence. 
 
@@ -33,7 +33,7 @@ Another Example DIVISION         
 
 ## PART 2
 
-Implements sequentials arithmetic operations with OldFashionPound
+Implements sequentials arithmetic operations with src.OldFashionPound
 
 Example SUM:                  
 * 1p 1s 1d + 1p 1s 1d + 1p 1s 1d = 3p 3s 3d
@@ -45,7 +45,7 @@ Create a command line interface that could read your operation in a specified fo
 # Usage 
 
 ```bash
-$ java -jar path/to/OldFashionPound-X.X.X.jar [expression]
+$ java -jar path/to/src.OldFashionPound-X.X.X.jar [expression]
 ```
 
 Expression must follow one of this rule:
