@@ -2,6 +2,8 @@ package src;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.function.BiConsumer;
 
 public class OldFashionPoundApp {
 
@@ -26,6 +28,8 @@ Example DIVISION:
 5p 17s 8d / 3 = 1p 19s 2d (2p)
 Another Example DIVISION
 18p 16s 1d / 15 = 1p 5s 0d (1s 1d)
+
+FARE PER OGNI OP UN OGGETTO(?)
      */
     public static void main(String[] args) {
 
@@ -37,8 +41,18 @@ Another Example DIVISION
         PoundConverter conv = new PoundConverter();
 
         PoundOperation op = new PoundOperation(conv);
-//        HashMap<String, String>
 
+        PoundStringAPI opAPI = new PoundStringAPI(op);
+
+        System.out.println(opAPI.decodeAndApply("5p 17s 8d + 3p 4s 10d"));
+        System.out.println(opAPI.decodeAndApply("5p 17s 8d - 3p 4s 10d"));
+        System.out.println(opAPI.decodeAndApply("5p 17s 8d - 5p 18s 8d"));
+
+
+
+
+
+        /*
         System.out.print("Example SUM:\n" +
                 "5p 17s 8d + 3p 4s 10d = 9p 2s 6d \n" +
                 "op.sum(p1,p2) -> ");
@@ -70,7 +84,7 @@ Another Example DIVISION
                 "op.division(p4,15) -> ");
         System.out.println(op.division(p4, 15));
         System.out.println();
-
+*/
     }
 
 
